@@ -1,0 +1,80 @@
+ext.standalone = false
+
+apply plugin: 'jacoco'
+
+Closure cl = { task -> println "Running $task.project.name" }
+
+allprojects {
+    task list << cl
+}
+
+subprojects {
+
+    list << { task -> println "$task.project.name is part of $task.project.parent.name" }
+    apply plugin: 'groovy'
+    apply plugin: 'java'
+    apply plugin: 'jacoco'
+
+    group = "com.ncc.sightt"
+
+    version = "0.0.9-SNAPSHOT"
+
+    repositories {
+        mavenCentral()
+        maven { url 'http://repo.springsource.org/libs-milestone' }
+    }
+
+    dependencies {
+        compile 'org.codehaus.groovy:groovy-all:2.0.4'
+    }
+
+    task dist(type: Tar, dependsOn: ['test']) {
+        afterEvaluate { Project project ->
+            if (project.standalone) {
+                doLast {
+                    println "Creating distribution of $project.name"
+                }
+                into(archiveName - ".${extension}") {
+                    with {
+                        from(project.file("src/dist"))
+                        into('lib') {
+                            from(jar)
+                            from(project.configurations.runtime)
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    jacoco {
+        toolVersion = "0.6.2.201302030002"
+        reportsDir = new File(buildDir, "jacoco")
+    }
+
+    jacocoTestReport {
+        reports {
+            xml.enabled true
+            html.destination "${buildDir}/jacocoHtml"
+        }
+    }
+
+    test {
+        jvmArgs "-XX:-UseSplitVerifier"
+//    testLogging.showStandardStreams = true
+    }
+}
+
+project(':taskconsumer') {
+    dependencies {
+        compile project(':jmslib'), project(':s3utils')
+    }
+}
+
+project(':jobzipper') {
+    dependencies {
+        compile project(':jmslib'), project(':s3utils')
+    }
+}
+
+task wrapper(type: Wrapper) { gradleVersion = '1.6' }

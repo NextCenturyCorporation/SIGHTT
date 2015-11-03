@@ -1,0 +1,18 @@
+#modelview {
+    width: 500px;
+    height: 500px;
+    position: static;
+    top: 20px;
+    left: 0px;
+}
+
+.progressbar {
+    position: relative;
+    top: 0px;
+    left: 0px;
+    background-color: lime;
+    padding: 5px;
+    overflow: visible;
+    white-space: nowrap;
+    z-index: 100;
+}

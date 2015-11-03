@@ -1,0 +1,397 @@
+div:hover {
+
+    /*
+     * Useful for debugging
+     * border:1px solid #bbb;
+     */
+}
+
+#left {
+    float: left;
+    width: 220px;
+    /*    position:relative;*/
+}
+
+#right {
+    float: right;
+    width: 200px;
+    /*    position:relative;*/
+}
+
+#main {
+    margin-top: 0;
+}
+
+#container {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.clear {
+    clear: both;
+}
+
+#middle {
+    margin: 0 0 0 240px;
+    width: 540px;
+    /*    position:relative;*/
+}
+
+#upload {
+    margin-bottom: 20px;
+}
+
+.innertube {
+    margin: 0;
+}
+
+.innertube p {
+    margin-top: 0;
+
+}
+
+textarea.locationdesc {
+    width: 190px;
+    height: 210px;
+    margin: 10px 0px 0px 0px;
+    background-color: transparent;
+    border: 0px solid;
+}
+
+#nav {
+    text-align: center;
+    margin-top: 20px;
+    padding: 10px;
+    clear: both;
+}
+
+#nav input {
+    color: #F9F9F9;
+    background: #48802C;
+    font-size: 1.2em;
+    text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.3);
+    display: inline-block;
+    padding: 0.6em 1em;
+    border-radius: 2px;
+    border: 0;
+}
+
+#nav input:hover {
+    color: #FFFFFF;
+    background: #579638;
+}
+
+#nav .sightt-disabled,
+#nav .sightt-disabled:hover {
+    background: #888888;
+    color: #E1E1E1;
+    cursor: default;
+}
+
+#nav table {
+    padding: 0;
+    margin: 0;
+    display: inline-block;
+    width: 350px;
+}
+
+input#upload,
+input#jobName {
+    margin-bottom: 20px;
+}
+
+#background img {
+    border-radius: 2px;
+    -moz-box-shadow: 0 0 0.5em rgba(0, 0, 0, 0.1);
+    -webkit-box-shadow: 0 0 0.5em rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 0.5em rgba(0, 0, 0, 0.1);
+    /*max-height: 540px;*/
+    max-width: 540px;
+}
+
+#chooseByNumber {
+    margin-bottom: 10px;
+}
+
+.indented {
+    padding-left: 20px;
+}
+
+.fieldcontain {
+    margin-top: 0;
+}
+
+.fieldcontain label, .fieldcontain .property-label {
+    width: auto;
+    color: #444444;
+    margin-bottom: 10px;
+}
+
+#step {
+    background: none;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    padding: 0;
+    margin-bottom: 0;
+    min-width: 850px;
+}
+
+#step .step {
+    display: inline-block;
+    *display: none;
+    padding: 0.6em 1em;
+    color: #999999;
+}
+
+#step .final {
+    margin: 0;
+}
+
+#step .step span {
+    font-weight: bold;
+    display: block;
+}
+
+#step .active {
+    border-radius: 2px 2px 0 0;
+    background: #F9F9F9;
+    color: #444444;
+    -moz-box-shadow: 0 -0.2em 0.3em -0.1em rgba(0, 0, 0, 0.1);
+    -webkit-box-shadow: 0 -0.2em 0.3em -0.1em rgba(0, 0, 0, 0.1);
+    box-shadow: 0 -0.2em 0.3em -0.1em rgba(0, 0, 0, 0.1);
+}
+
+#step p {
+    text-align: center;
+    padding: 1em;
+    border-radius: 2px 2px 0 0;
+    background: #E1F2B6;
+    margin: 0;
+    font-weight: 300;
+}
+
+h1.preview {
+    color: #888888;
+    display: inline-block;
+}
+
+span.preview {
+    color: #888888;
+}
+
+#summaryData {
+    text-align: center;
+}
+
+#summaryData ul {
+    padding: 0;
+    margin: 0;
+    list-style: none outside none;
+    display: inline-block;
+    text-align: left;
+}
+
+#summaryData li {
+    margin: 0 0 1em;
+}
+
+#summaryData span {
+    padding-right: 1em;
+    font-size: 1.5em;
+    font-weight: 300;
+}
+
+.summary-label {
+    display: inline-block;
+    min-width: 290px;
+    text-align: right;
+    vertical-align: top;
+    color: #888888;
+}
+
+.summary-value {
+    display: inline-block;
+    color: #3182BD;
+    min-width: 200px;
+}
+
+.message.wizard {
+    margin-top: 0;
+}
+
+/*#previewText {*/
+/*display: inline-block;*/
+/*position: relative;*/
+/*top: -540px;*/
+/*}*/
+
+#ui-carousel-prev {
+    display: block;
+    width: 100px;
+    height: 50px;
+    background-image: url(../images/rcarousel/arrow-up.png);
+    border: none;
+}
+
+#ui-carousel-next {
+    display: block;
+    width: 100px;
+    height: 50px;
+    background-image: url(../images/rcarousel/arrow-down.png);
+    border: none;
+}
+
+#ui-carousel-prev:hover {
+    background-color: #AdAdAd;
+    border-radius: 10px;
+
+}
+
+#ui-carousel-next:hover {
+    background-color: #AdAdAd;
+    border-radius: 10px;
+
+}
+
+#carousel-container {
+    width: 100px;
+    /*background-color: #E9E9E9;*/
+    border: 1px solid #c9c9c9;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+#carousel {
+    /*background-color: #E9E9E9;*/
+}
+
+/* #carousel div>div:hover {
+    background-color: #AdAdAd;
+}*/
+
+.carousel-centered {
+    position: relative;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    top: 50%;
+    border: 1px dotted grey;
+}
+
+#background-buttons.initial {
+    opacity: 1;
+}
+
+#background-buttons {
+    background: rgba(0, 0, 0, .25);
+    text-align: center;
+    display: auto;
+    opacity: 0;
+    transition: opacity 1s ease-out;
+
+}
+
+#backImage {
+    width: 540px;
+}
+
+#image {
+}
+
+#background-buttons {
+    cursor: pointer;
+}
+
+#backImage:hover #background-buttons {
+    opacity: 1;
+}
+
+#background-buttons.remove {
+    background: rgba(255, 0, 0, .25);
+}
+
+#background-buttons.add {
+    background: rgba(0, 255, 0, .25);
+}
+
+label[for=selectedBackgroundsList] {
+    font-weight: 900;
+}
+
+#selectedBackgroundsList p {
+    overflow: hidden;
+    cursor: pointer;
+}
+
+#selectedBackgroundsList p:hover {
+    transition: all 0.25s ease-in-out;
+    -webkit-transition: all 0.25s ease-in-out;
+    -moz-transition: all 0.25s ease-in-out;
+    -o-transition: all 0.25s ease-in-out;
+    -ms-transition: all 0.25s ease-in-out;
+    text-shadow: 0 0 2px #333;
+    /*color: #fff;*/
+}
+
+.ui-row {
+    width: 100%;
+    margin: 0 auto;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.ui-block {
+
+}
+
+#modelcontainer {
+    width: 500px;
+    display: inline-block;
+    float: left;
+}
+
+#modelview-controls {
+    width: 384px;
+    display: inline-block;
+    float: left;
+    padding: 0px 0px 0px 10px;
+}
+
+.jobsettings ul {
+    list-style-type: none;
+}
+
+.jobsettings li {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.jobsettings label {
+    margin-right: 10px;
+}
+
+#tooltip {
+    position: absolute;
+    border: 1px solid #333;
+    background-color: rgba(178, 209, 255, 0.5);
+    padding: 2px 5px;
+    color: #333;
+    display: none;
+}
+
+.wizard-next-button {
+    margin: 0px 20px;
+}
+
+.slick-slide {
+    height:66px;
+    margin-top: 12px;
+}
+
+.slick-slide img {
+    height:66px;
+}

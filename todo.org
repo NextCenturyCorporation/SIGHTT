@@ -1,0 +1,115 @@
+#+TITLE: List of tasks in SIGHTT
+
+<tab> to expand in emacs
+
+** DONE Lighting [1/1]
+- [X] Add background image to advanced lighting
+  
+** TODO TaskConsumer [8/10]
+- [ ] When doing a single image, default orientation is off by 90 degrees (from front rather than side)
+- [X] Flag to clean up old directories when done with them (how to do debug???)
+- [X] Improve shadows (too dark!,  WAS:  too light)
+- [X] Show shadow on ground-plane
+- [X] Fix ground clipping (evaluate lowest point relative to ground plane, not lowest Z)
+- [X] Use alpha channel from render explicitly during compositing 
+- [X] Fix rotation code;  Peter reports that orientations selected are not what is returned
+- [X] Ensure that model appears on all backgrounds, when ground plane is selected   <-- NOTE:  removed because went to single background
+- [X] Scale down directional brightness 
+- [ ] LOW: use configuration for Blender location (vice /opt/blender/blender)
+- [ ] LOW: Put the 'Point' where it touches the ground, for shadow-based renders
+
+** TODO User Interface [14/18]
+- [X] Make sure can run without S3
+- [X] Handle case where 10 degree is selected, unselect all but one, and then continue.  Page goes blank.
+- [X] Remove message on background page to Add background to list
+- [X] Change message on Step 4
+- [X] Remove duplicate code from thingiloader / modelview.js
+- [X] Determine if aspectHandler.js and limitedAspects.js are both needed.  See top of limitedAspects.js
+- [X] Hand-entered number of images can mis-parse
+- [X] Multiple backgrounds with different sizes breaks location setting  <-- NOTE:  removed because went to single background 
+- [X] Remove multiple backgrounds
+- [X] Show all 4 vertices in model view (vice making triangles out of them)
+- [X] Rectangle locations break TaskService when creating jobs
+- [X] Set default lighting model slightly in front and to left (elevation:  1.225/75 deg, azimuth: -1.9/-110)
+- [X] Turn off ComputeResource in dev mode
+- [X] LOW: Show image size on image select page
+- [ ] LOW: Ground plane does not get cloned or it does not show up when in advanced
+- [ ] LOW: Make model loading faster; possibly cache obj file in browser?
+- [ ] LOW: Use blank background of arbitrary size
+- [ ] LOW: Allow download of models files that you own
+
+** DONE Models [7/7]
+- [X] Change auto-loaded RPG to match default image, make sure good quality
+- [X] Add additional default models
+- [X] Find cameras by type, rather than name
+- [X] Do not upload thumbnails, make it load models
+- [X] Check licensing on models 
+- [X] Continue to parse bad obj files
+- [X] Handle 2-element 'f' elements in obj files
+
+** DONE Messaging [3/3]
+- [X] Stop timeout of listeners in TaskService
+- [X] Rename 'objectName' to 'modelName' in BaseRenderMessage. Confusing since there is an '.obj' file. 
+- [X] Rename 'objectKey' to 'modelKey' in BaseRenderMessage
+
+** DONE Summary Page [4/4]
+- [X] Add ground plane info
+- [X] Theta -> Azimuth
+- [X] Phi -> Elevation
+- [X] Radians -> Degree
+
+** DONE Ground Plane [6/6]
+- [X] Set size correctly in select ground plane selection
+- [X] Slider in ground plane needs to show starting grid size
+- [X] Improve description of ground plane
+- [X] Background tab needs to be active when in ground plane selection (in wizard)
+- [X] Don't pop up text after clicking on advanced ground plane
+- [X] Use selected background, not first in list, for background in ground plane
+
+** TODO JobZipper [3/5]
+- [X] Timing issues
+- [X] Issues waiting for last file
+- [X] Single image jobs don't zip properly
+- [ ] LOW: Handle server restart (i.e. reset of job numbering) gracefully
+      -- On-restart, send jz reset message
+      -- For each job, have unique UUID.  Use UUID as internal ID, not jobID
+      -- Check with DB that the UUID is, in fact, unique
+- [ ] LOW: Use Camel with JobZipper.  Reconsider using Camel everywhere.
+
+** TODO FAQ [0/3]
+- [ ] Add more ground-plane to FAQ
+- [ ] Add more information to FAQ on rotations, re. conversation with Peter
+- [ ] Re-create FAQ model images as default orientation has changed
+
+** Other [4/4]
+- [X] Create license for SIGHTT
+- [X] Pull all licenses for dependencies and put into license/ dir
+- [X] Add new disclaimer re. Public Release Center 
+- [X] Change the license / copyright statement to 3-clause BSD for everything 
+
+** DONE Cross-Browser [3/4]
+- [ ] IE 11 issue for carousel; does not show images when console is not up
+- [X] Make sure works on Peter's browser (FF 31, issues with orientation interface)
+- [X] Test on other browsers (determine how far back??)
+- [X] Make sure all references to console are wrapped, solve IE console issue
+
+----------------------------------------------------------------------
+
+
+* How to work with .org files in Emacs
+  
+** Headlines
+- <tab> to expand headline
+- M-<ret> to create headline at current level (* first level, ** second, etc.)
+- M-left to promote , M-right to demote headline
+- Put TODO at beginning to make a todo list, add '[0/0]' to have progress at end of line
+- Update counts: C-c # for curent headline, C-u C-c # for all.  C-c C-c in item will update parent
+- Use C-c C-t to toggle TODO state to DONE state
+
+** Lists
+- unordered start with '-', '*', or '+'
+- ordered start with 1.
+- Descriptions start with '::'
+- Checkbox start with [ ]
+- Toggle checkbox with C-c C-c
+

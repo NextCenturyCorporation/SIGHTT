@@ -1,0 +1,36 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context-3.0.xsd
+       http://camel.apache.org/schema/spring
+       http://camel.apache.org/schema/spring/camel-spring.xsd">
+	<context:annotation-config />
+	
+	<import resource="sightt-common.xml" />
+
+	<!--  For Test, use the bucket sightt-live -->
+	<bean id="fsc" class="com.ncc.sightt.s3.FileStorageConfiguration">
+		<property name="bucketName" value="sightt-live" />
+		<property name="defaultImageType" value="png" />
+		<property name="backgroundPrefix" value="back/" />
+		<property name="modelPrefix" value="model/" />
+		<property name="objFilePrefix" value="object/" />
+		<property name="thumbnailPrefix" value="thumb/" />
+		<property name="compositedPrefix" value="comp/" />
+		<property name="renderPrefix" value="render/" />
+	</bean>
+
+	<!-- <bean id="storageService" class="com.ncc.sightt.s3.S3StorageService"> -->
+    <bean id="storageService" class="com.ncc.sightt.s3.LocalFileStorageService">
+	  <property name="fileStorageConfiguration" ref="fsc"/>
+	</bean>
+
+	<!-- Automagically handles adding the camel component and handles activemq 
+		connection pooling -->
+	<bean id="jmsConnectionFactory" class="org.apache.activemq.ActiveMQConnectionFactory">
+		<property name="brokerURL" value="tcp://ec2-54-243-46-8.compute-1.amazonaws.com:61616?jms.prefetchPolicy.all=1" />
+        </bean>
+
+</beans>

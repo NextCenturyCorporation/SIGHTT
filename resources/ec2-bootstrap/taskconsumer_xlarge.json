@@ -1,0 +1,14 @@
+{
+    "bootstrap": {
+	"bucket_name": "sightt-bootstrap",
+	"script": {
+	    "file": "bootstrap_xlarge.run"
+	}
+    },
+    "dependencies": [
+	{
+	    "bucket_name": "sightt-bootstrap",
+	    "path": "taskconsumer_xlarge.sh"
+	}
+    ]
+}

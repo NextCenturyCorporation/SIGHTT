@@ -1,0 +1,927 @@
+/* THESE ARE SOME OF THE STANDARD COLORS WE USE */
+/*
+  off-white background: #F6F6F6
+
+
+*/
+
+/* FONT STACK */
+body,
+input, select, textarea {
+    font-family: "Open Sans", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    line-height: 1.1;
+}
+
+/* BASE LAYOUT */
+
+html {
+    background-color: #F1F1F1;
+    background-repeat: no-repeat;
+    height: 100%;
+    /* change the box model to exclude the padding from the calculation of 100% height (IE8+) */
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+html.no-cssgradients {
+    background-color: #bbb;
+}
+
+.ie6 html {
+    height: 100%;
+}
+
+html * {
+    margin: 0;
+}
+
+body {
+    color: #444444;
+    margin: 0 auto;
+    max-width: 960px;
+    overflow-x: hidden; /* prevents box-shadow causing a horizontal scrollbar in firefox when viewport < 960px wide */
+}
+
+#sighttLogo {
+    background-color: #3182BD;
+    border-radius: 2px 2px 0 0;
+    -moz-box-shadow: 0 0 0.2em rgba(0, 0, 0, 0.2);
+    -webkit-box-shadow: 0 0 0.2em rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 0.2em rgba(0, 0, 0, 0.2);
+    margin: 1.5em 0 0;
+    padding: .25em .25em .25em 2em;
+}
+
+#sighttLogo.auth {
+    border-radius: 2px;
+}
+
+#grailsLogo {
+    background-color: #255b17;
+}
+
+/* replace with .no-boxshadow body if you have modernizr available */
+.ie6 body,
+.ie7 body,
+.ie8 body {
+    border-color: #255b17;
+    border-style: solid;
+    border-width: 0;
+}
+
+.ie6 body {
+    height: 100%;
+}
+
+a:link, a:visited, a:hover {
+    color: #48802c;
+    /*  These removed because IE 11 complains about :link and :visited differing by more than color */
+    /* text-decoration: none; */
+    /* border-bottom: 1px dotted #86B270; */
+}
+
+a:hover, a:active {
+    outline: none; /* prevents outline in webkit on active links but retains it for tab focus */
+    border-color: #48802c;
+}
+
+h1 {
+    color: #3182BD;
+    font-weight: 300;
+    font-size: 1.5em;
+    margin: 0 0 0.8em;
+    padding: 0;
+}
+
+h1.faq {
+    margin: 0;
+    padding: 0;
+}
+
+h2 {
+    margin: 0;
+    font-weight: 300;
+    font-size: 1.2em;
+}
+
+#page-body,
+.container,
+.content {
+    background: #F9F9F9;
+    border-radius: 2px;
+    -moz-box-shadow: 0 0 0.5em rgba(0, 0, 0, 0.1);
+    -webkit-box-shadow: 0 0 0.5em rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 0.5em rgba(0, 0, 0, 0.1);
+    margin: 0.6em 0;
+    padding: 2em;
+}
+
+/*Navbar CSS modified based upon this
+http://line25.com/tutorials/how-to-create-a-pure-css-dropdown-menu
+*/
+.navbar {
+    margin-top: 0;
+    padding: 1em 2em;
+    border-radius: 0 0 2px 2px;
+    display: inline-table;
+}
+
+.navbar ul {
+
+    box-shadow: 0px 0px 9px rgba(0, 0, 0, 0.15);
+    padding: 0 20px;
+    border-radius: 10px;
+    list-style: none;
+    display: inline-table;
+    position: relative;
+    background-color: #F6F6F6;
+}
+
+.navbar ul:after {
+    content: "";
+    clear: both;
+    display: block;
+}
+
+/*
+Found at  http://jsfiddle.net/w9xnv/2/
+*/
+
+.navbar ul > li > a:after {
+    margin-left: 5px;
+    content: '\25BC';
+}
+
+.navbar ul > li > a:only-child:after {
+    margin-left: 0;
+    content: '';
+}
+
+.navbar ul li a {
+    display: block;
+    padding: 10px 15px;
+    text-decoration: none;
+}
+
+.navbar ul > li > p:after {
+    margin-left: 5px;
+    content: '\25BC';
+}
+
+.navbar ul li p {
+    display: block;
+    padding: 10px 15px;
+    text-decoration: none;
+}
+
+.navbar ul ul {
+    /*display: none;*/
+    display: block;
+    border-radius: 0px;
+    padding: 0;
+    position: absolute;
+    top: 100%;
+    opacity: 0;
+    height: 0;
+    overflow: hidden;
+    z-index: 999;
+}
+
+.navbar ul ul li {
+    float: none;
+    position: relative;
+}
+
+.navbar ul ul li a {
+    padding: 2px 20px;
+}
+
+.navbar ul ul li a:hover {
+    color: #444444;
+}
+
+.navbar ul li:hover > ul {
+    /*display: block;*/
+    opacity: 100;
+    height: auto;
+    transition: opacity .5s;
+}
+
+.navbar ul li:hover {
+    background-color: #C6C6C6;
+}
+
+.navbar ul li {
+    float: left;
+}
+
+.navbar a {
+    border: 0;
+    display: inline-block;
+    text-decoration: none;
+}
+
+.navbar .end a {
+    border-right: 0;
+}
+
+.navbar a:hover,
+.navbar .active a {
+    color: #444444;
+}
+
+.BigButton {
+    text-align: center;
+    margin: 1.5em 0 0;
+}
+
+.BigButton a {
+    font-weight: bold;
+    color: #F9F9F9;
+    background: #48802C;
+    font-size: 1.4em;
+    text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.2);
+    display: inline-block;
+    padding: 0.6em 1em;
+    border-radius: 2px;
+    border: 0;
+}
+
+.BigButton a:hover {
+    color: #FFFFFF;
+    background: #579638;
+}
+
+ul {
+    padding: 1;
+}
+
+img {
+    border: 0;
+}
+
+/* GENERAL */
+
+#grailsLogo a {
+    display: inline-block;
+    margin: 1em;
+    border: 0;
+}
+
+#sighttLogo a {
+    display: inline-block;
+    border: 0;
+}
+
+.content h1 {
+    margin: 0 0 0.8em;
+}
+
+.scaffold-list h1 {
+    border: none;
+}
+
+.footer {
+    /* background: #abbf78; */
+    background: #E1E1E1;
+    color: #777;
+    clear: both;
+    font-size: 0.8em;
+    padding: 2em;
+    min-height: 1em;
+    margin-bottom: 1.5em;
+}
+
+.footer .right {
+    float: right;
+}
+
+.footer .left {
+    float: left;
+}
+
+.spinner {
+    background: url(../images/spinner.gif) 50% 50% no-repeat transparent;
+    height: 16px;
+    width: 16px;
+    padding: 0.5em;
+    position: absolute;
+    right: 0;
+    top: 0;
+    text-indent: -9999px;
+}
+
+/* NAVIGATION MENU */
+
+.nav {
+    background: #F9F9F9;
+    border-radius: 2px;
+    -moz-box-shadow: 0 0 0.5em rgba(0, 0, 0, 0.1);
+    -webkit-box-shadow: 0 0 0.5em rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 0.5em rgba(0, 0, 0, 0.1);
+    margin: 0.6em 0;
+    padding: 0.75em 1.2em;
+    zoom: 1;
+}
+
+.nav ul {
+    overflow: hidden;
+    padding-left: 0;
+    zoom: 1;
+}
+
+.nav li {
+    display: block;
+    float: left;
+    list-style-type: none;
+    margin-right: 0.5em;
+    padding: 0;
+}
+
+.nav a {
+    color: #666666;
+    display: block;
+    padding: 0.25em 0.7em;
+    text-decoration: none;
+    border: 0;
+    -moz-border-radius: 0.3em;
+    -webkit-border-radius: 0.3em;
+    border-radius: 0.3em;
+}
+
+.nav a:active, .nav a:visited {
+    color: #666666;
+}
+
+.nav a:focus, .nav a:hover {
+    background-color: #999999;
+    color: #ffffff;
+    outline: none;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.8);
+}
+
+.no-borderradius .nav a:focus, .no-borderradius .nav a:hover {
+    background-color: transparent;
+    color: #444444;
+    text-decoration: underline;
+}
+
+.nav a.home, .nav a.list, .nav a.create, .nav a.delete {
+    background-position: 0.7em center;
+    background-repeat: no-repeat;
+    text-indent: 25px;
+}
+
+.nav a.home {
+    background-image: url(../images/skin/house.png);
+}
+
+.nav a.list {
+    background-image: url(../images/skin/database_table.png);
+}
+
+.nav a.create {
+    background-image: url(../images/skin/database_add.png);
+}
+
+.nav a.delete {
+    background-image: url(../images/skin/database_delete.png);
+}
+
+/* CREATE/EDIT FORMS AND SHOW PAGES */
+
+fieldset,
+.property-list {
+    margin: 0;
+    padding: 0;
+    position: relative;
+    zoom: 1;
+    border: none;
+}
+
+.property-list .fieldcontain {
+    list-style: none;
+    overflow: hidden;
+    zoom: 1;
+}
+
+.fieldcontain {
+    margin-bottom: 1em;
+}
+
+.fieldcontain label,
+.fieldcontain .property-label {
+    color: #666666;
+    text-align: right;
+    width: 30%;
+}
+
+.fieldcontain .property-label {
+    font-size: 1.5em;
+    font-weight: 300;
+    float: left;
+    color: #888888;
+}
+
+.fieldcontain .property-value {
+    font-size: 1.5em;
+    font-weight: 300;
+    display: block;
+    margin-left: 33%;
+    color: #3182BD;
+}
+
+#zipfile {
+    display: block;
+    margin-bottom: 0.7em;
+}
+
+label {
+    cursor: pointer;
+    display: inline-block;
+    margin: 0 0.25em 0 0;
+}
+
+input, select, textarea {
+    background-color: #fcfcfc;
+    border: 1px solid #cccccc;
+    font-size: 1em;
+    padding: 0.2em 0.4em;
+}
+
+input[type="submit"] {
+    cursor: pointer;
+}
+
+select {
+    padding: 0.2em 0.2em 0.2em 0;
+}
+
+select[multiple] {
+    vertical-align: top;
+}
+
+textarea {
+    width: 250px;
+    height: 150px;
+    overflow: auto; /* IE always renders vertical scrollbar without this */
+    vertical-align: top;
+}
+
+.code {
+    background-color: #111111;
+    color: #CFCFCF;
+    font-size: 0.8em;
+    height: 250px;
+    overflow: auto;
+    vertical-align: top;
+    width: 800px;
+    white-space: pre
+}
+
+input[type=checkbox], input[type=radio] {
+    background-color: transparent;
+    border: 0;
+    padding: 0;
+}
+
+input:focus, select:focus, textarea:focus {
+    background-color: #ffffff;
+    border: 1px solid #E1F2B6;
+    outline: 0;
+    -moz-box-shadow: 0 0 0.5em #E1F2B6;
+    -webkit-box-shadow: 0 0 0.5em #E1F2B6;
+    box-shadow: 0 0 0.5em #E1F2B6;
+}
+
+.required-indicator {
+    color: #48802C;
+    display: inline-block;
+    font-weight: bold;
+    margin-left: 0.3em;
+    position: relative;
+    top: 0.1em;
+}
+
+ul.one-to-many {
+    display: inline-block;
+    list-style-position: inside;
+    vertical-align: top;
+}
+
+.ie6 ul.one-to-many, .ie7 ul.one-to-many {
+    display: inline;
+    zoom: 1;
+}
+
+ul.one-to-many li.add {
+    list-style-type: none;
+}
+
+/* EMBEDDED PROPERTIES */
+
+fieldset.embedded {
+    background-color: transparent;
+    border: 1px solid #CCCCCC;
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0;
+    padding-right: 0;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+fieldset.embedded legend {
+    margin: 0 1em;
+}
+
+/* MESSAGES AND ERRORS */
+
+.errors,
+.message,
+.confirm {
+    font-size: 0.8em;
+    line-height: 2;
+    margin: 0 0 1.4em;
+    padding: 1em;
+    border-radius: 2px;
+}
+
+.message {
+    color: #333333;
+    background: #b2d1ff;
+}
+
+.errors {
+    background: #FFAAAA;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3);
+    color: #111111;
+}
+
+.errors ul,
+.message {
+
+}
+
+.errors li {
+    list-style: none;
+    background: transparent url(../images/exclamation-flat.png) 0.5em 50% no-repeat;
+    text-indent: 2.2em;
+}
+
+.message {
+    background: #b2d1ff url(../images/information-flat.png) 1em 50% no-repeat;
+    padding-left: 3.2em;
+}
+
+.confirm {
+    color: #333333;
+    background: #9ACC7B url(../images/checkmark-flat.png) 1em 50% no-repeat;
+    padding-left: 3.2em;
+}
+
+/* form fields with errors */
+
+.error input, .error select, .error textarea {
+    background: #fff3f3;
+    border-color: #ffaaaa;
+    color: #cc0000;
+}
+
+.error input:focus, .error select:focus, .error textarea:focus {
+    -moz-box-shadow: 0 0 0.5em #ffaaaa;
+    -webkit-box-shadow: 0 0 0.5em #ffaaaa;
+    box-shadow: 0 0 0.5em #ffaaaa;
+}
+
+/* same effects for browsers that support HTML5 client-side validation (these have to be specified separately or IE will ignore the entire rule) */
+
+input:invalid, select:invalid, textarea:invalid {
+    background: #fff3f3;
+    border-color: #ffaaaa;
+    color: #cc0000;
+}
+
+input:invalid:focus, select:invalid:focus, textarea:invalid:focus {
+    -moz-box-shadow: 0 0 0.5em #ffaaaa;
+    -webkit-box-shadow: 0 0 0.5em #ffaaaa;
+    box-shadow: 0 0 0.5em #ffaaaa;
+}
+
+/* TABLES */
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-bottom: 1em;
+    -moz-box-shadow: 0 0 0.5em rgba(0, 0, 0, 0.06);
+    -webkit-box-shadow: 0 0 0.5em rgba(0, 0, 0, 0.06);
+    box-shadow: 0 0 0.5em rgba(0, 0, 0, 0.06);
+}
+
+.auth table {
+    margin: 0;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+tr {
+    border: 0;
+    border-radius: 2px;
+}
+
+tr > td:first-child, tr > th:first-child {
+    padding-left: 1.25em;
+}
+
+tr > td:last-child, tr > th:last-child {
+    padding-right: 1.25em;
+}
+
+td, th {
+    line-height: 1.5em;
+    padding: 0.5em 0.6em;
+    text-align: left;
+    vertical-align: top;
+}
+
+th {
+    background-color: #efefef;
+    background-image: -moz-linear-gradient(top, #ffffff, #eaeaea);
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #ffffff), color-stop(1, #eaeaea));
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#ffffff', EndColorStr='#eaeaea');
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='#ffffff', EndColorStr='#eaeaea')";
+    color: #666666;
+    font-weight: bold;
+    line-height: 1.7em;
+    padding: 0.2em 0.6em;
+}
+
+thead th {
+    white-space: nowrap;
+}
+
+th a {
+    display: block;
+    text-decoration: none;
+}
+
+th a:link, th a:visited {
+    color: #666666;
+}
+
+th a:hover, th a:focus {
+    color: #333333;
+}
+
+th.sortable a {
+    background-position: right;
+    background-repeat: no-repeat;
+    padding-right: 1.1em;
+    border: 0;
+}
+
+th.asc a {
+    background-image: url(../images/skin/sorted_asc.gif);
+}
+
+th.desc a {
+    background-image: url(../images/skin/sorted_desc.gif);
+}
+
+.odd {
+    background: #f1f1f1;
+}
+
+.even {
+    background: none
+}
+
+th:hover, tr:hover {
+    background: #E1F2B6;
+}
+
+/* PAGINATION */
+
+.pagination {
+    border-top: 0;
+    margin: 0;
+    padding: 0 0.2em;
+    text-align: center;
+}
+
+.pagination a,
+.pagination .currentStep {
+    color: #888888;
+    display: inline-block;
+    margin: 0 0.5em;
+    font-weight: 300;
+    text-decoration: none;
+    border: 0;
+    font-size: 1.2em;
+}
+
+.pagination a:hover, .pagination a:focus,
+.pagination .currentStep {
+    color: #48802C;
+    outline: none;
+    border-bottom: 1px dotted #86B270;
+}
+
+.no-borderradius .pagination a:hover, .no-borderradius .pagination a:focus,
+.no-borderradius .pagination .currentStep {
+    background-color: transparent;
+    color: #444444;
+    text-decoration: underline;
+}
+
+/* ACTION BUTTONS */
+
+.buttons {
+    overflow: hidden;
+    padding: 0;
+    /*   -moz-box-shadow: 0 0 0.2em rgba(0, 0, 0, 0.2);
+    -webkit-box-shadow: 0 0 0.2em rgba(0, 0, 0, 0.2);
+            box-shadow: 0 0 0.2em rgba(0, 0, 0, 0.2);*/
+    margin: 0;
+    border: none;
+    border-radius: 2px;
+    text-align: right;
+    z-index: 1;
+}
+
+.buttons-top {
+    position: relative;
+}
+
+.buttons-top .buttons {
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.buttons input,
+.buttons a {
+    background-color: transparent;
+    border: 0;
+    color: #666666;
+    cursor: pointer;
+    display: inline-block;
+    margin: 0 0.25em 0;
+    overflow: visible;
+    padding: 0.25em 0.7em;
+    text-decoration: none;
+
+    -moz-border-radius: 0.3em;
+    -webkit-border-radius: 0.3em;
+    border-radius: 0.3em;
+}
+
+.buttons input:hover, .buttons input:focus,
+.buttons a:hover, .buttons a:focus {
+    background-color: #999999;
+    color: #ffffff;
+    outline: none;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.8);
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+.no-borderradius .buttons input:hover, .no-borderradius .buttons input:focus,
+.no-borderradius .buttons a:hover, .no-borderradius .buttons a:focus {
+    background-color: transparent;
+    color: #444444;
+    text-decoration: underline;
+}
+
+.buttons .create, .buttons .delete, .buttons .edit, .buttons .list, .buttons .save, .buttons .register {
+    background-position: 0.7em center;
+    background-repeat: no-repeat;
+    text-indent: 25px;
+}
+
+.ie6 .buttons input.create, .ie6 .buttons input.delete, .ie6 .buttons input.edit, .ie6 .buttons input.list, .ie6 .buttons input.save, .ie6 .buttons input.register
+.ie7 .buttons input.create, .ie7 .buttons input.delete, .ie7 .buttons input.edit, .ie7 .buttons input.list, .ie7 .buttons input.save, .ie6 .buttons input.register {
+    padding-left: 36px;
+}
+
+.buttons .create {
+    background-image: url(../images/skin/database_add.png);
+}
+
+.buttons .delete {
+    background-image: url(../images/skin/database_delete.png);
+}
+
+.buttons .edit {
+    background-image: url(../images/skin/database_edit.png);
+}
+
+.buttons .list {
+    background-image: url(../images/skin/database_table.png);
+}
+
+.buttons .save {
+    background-image: url(../images/skin/database_save.png);
+}
+
+.buttons .register {
+    background-image: url(../images/skin/register.png);
+}
+
+a.skip {
+    position: absolute;
+    left: -9999px;
+}
+
+#previews a,
+#list-objectModel a {
+    border: 0;
+}
+
+#taskProgress table {
+    margin-bottom: 0;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    border-radius: 2px;
+    background: #EFEFEF;
+}
+
+#create-objectModel p {
+    margin-bottom: 1em;
+}
+
+.sightt-disabled {
+    cursor: default;
+}
+
+.save:disabled {
+    background: rgba(255, 0, 0, 0.5);
+}
+
+.information {
+    padding: 10px;
+    color: #333333;
+    background: transparent url(../images/skin/information.png) 10px 50% no-repeat;
+}
+
+#profileData {
+    text-align: left;
+}
+
+#profileData ul {
+    padding: 0;
+    margin: 0;
+    list-style: none outside none;
+    display: inline-block;
+    text-align: left;
+}
+
+#profileData li {
+    margin: 0 0 1em;
+}
+
+#profileData span {
+    padding-right: 1em;
+    font-size: 1.0em;
+    font-weight: 300;
+}
+
+.profile-label {
+    display: inline-block;
+    min-width: 290px;
+    text-align: right;
+    color: #888888;
+}
+
+.profile-value {
+    display: inline-block;
+    color: #3182BD;
+    min-width: 200px;
+}
+
+.preferences {
+    background: #F9F9F9;
+    border-radius: 2px;
+    -moz-box-shadow: 0 0 0.5em rgba(0, 0, 0, 0.1);
+    -webkit-box-shadow: 0 0 0.5em rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 0.5em rgba(0, 0, 0, 0.1);
+    margin: 0.6em 0;
+    padding: 2em;
+}
+
+.preferences ul {
+    list-style: none;
+}
+
+.preferences li {
+    margin: 0 0 1em;
+}

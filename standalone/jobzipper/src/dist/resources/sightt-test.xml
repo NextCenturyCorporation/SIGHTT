@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="fsc" class="com.ncc.sightt.s3.FileStorageConfiguration">
+        <property name="bucketName" value="sightt-test"/>
+        <property name="defaultImageType" value="png"/>
+        <property name="backgroundPrefix" value="back/"/>
+        <property name="modelPrefix" value="model/"/>
+        <property name="objFilePrefix" value="object/"/>
+        <property name="thumbnailPrefix" value="thumb/"/>
+        <property name="compositedPrefix" value="comp/"/>
+        <property name="renderPrefix" value="render/"/>
+    </bean>
+
+	<!-- <bean id="storageService" class="com.ncc.sightt.s3.S3StorageService"> -->
+    <bean id="storageService" class="com.ncc.sightt.s3.LocalFileStorageService">
+        <property name="fileStorageConfiguration" ref="fsc"/>
+    </bean>
+
+    <bean id="jobzipper" class="com.ncc.sightt.jobzipper.JobZipper">
+        <property name="jmsUrl" value="tcp://localhost:61616"/>
+        <property name="storageService" ref="storageService"/>
+    </bean>
+</beans>

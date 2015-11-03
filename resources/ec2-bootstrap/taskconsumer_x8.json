@@ -1,0 +1,14 @@
+{
+    "bootstrap": {
+	"bucket_name": "sightt-bootstrap",
+	"script": {
+	    "file": "bootstrap_standalone.sh"
+	},
+	"dependencies": [
+	    {
+		"bucket_name": "sightt-bootstrap",
+		"path": "taskconsumer_x8.sh"
+	    }
+	]
+    }
+}

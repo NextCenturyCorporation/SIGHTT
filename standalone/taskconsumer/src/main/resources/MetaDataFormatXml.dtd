@@ -1,0 +1,88 @@
+<!-- Document Type Definition (DTD) of image based metadata to be used by 3D object recognition -->
+
+        <!ELEMENT annotation (filename, source, size, date, time, object*)>
+
+        <!ELEMENT filename (#PCDATA)>
+
+        <!ELEMENT source (database, image)>
+
+        <!ELEMENT database (#PCDATA)>
+        <!ELEMENT image (#PCDATA)>
+
+        <!ELEMENT size (Width, Height, depth)>
+
+        <!ELEMENT Width (#PCDATA)>
+        <!ELEMENT Height (#PCDATA)>
+        <!ELEMENT depth (#PCDATA)>
+
+        <!ELEMENT date (#PCDATA)>
+        <!ELEMENT time (#PCDATA)>
+
+        <!ELEMENT object (modelName, viewAngle, distanceFromCamera, name, objectID, classID, occlusion, polygon, points, objectParts)>
+
+        <!ELEMENT modelName (#PCDATA)>
+        <!ELEMENT viewAngle (pan, tilt, roll)>
+
+        <!ELEMENT pan (#PCDATA)>
+        <!ELEMENT tilt (#PCDATA)>
+        <!ELEMENT roll (#PCDATA)>
+
+        <!ELEMENT distanceFromCamera (distance, unit)>
+
+        <!ELEMENT distance (#PCDATA)>
+        <!ELEMENT unit (#PCDATA)>
+
+        <!ELEMENT name (#PCDATA)>
+        <!ELEMENT objectID (#PCDATA)>
+        <!ELEMENT classID (#PCDATA)>
+        <!ELEMENT occlusion (#PCDATA)>
+        <!ELEMENT polygon (pt)+>
+
+        <!ELEMENT pt (x, y)>
+
+        <!ELEMENT x (#PCDATA)>
+        <!ELEMENT y (#PCDATA)>
+
+        <!ELEMENT points (pt)+>
+
+        <!ELEMENT objectParts (objectID)+>
+
+        <!-- Semantic description of elements of annotation XML document
+
+        filename: name of image file (including extension)
+        database: name of image dataset
+        image: source of image file (owner, author, flickr)
+        imageWidth: image width [pixels]
+        imageHeight: image height [pixels]
+        depth: number of channels
+
+        date: date the annotation file is generated
+        time: time at which the annotation file is generated
+
+        object: annotated image object
+        modelName: name of 3D model
+
+        viewAngle: pan, tilt, and roll angle (in radians) of the view point.
+        pan: pan view angle in radians
+        tilt: tilt view angle in radians
+        roll: roll view angle in radians
+
+        distanceFromCamera: distance from camera when rendering of this object was done
+        distance: actual distance
+        unit: units of the distance
+
+        name: name of the annotated image object (e.g. RPG)
+        objectID: unique identifier of the annotated image object within this file
+        classID: unique id of this class of object - this id can be globally unique for this type of object
+        occlusion: percentage of the object that is occlued - 1 for fully occluded and 0 for not occluded at all
+        polygon: image region boundary
+        points: list of locations of key points on the object
+
+        pt:	point on the image region boundary (polygon corner)
+
+        x: image axis running horizontally from left to right
+        y: image axis running vertically from top to bottom
+
+        objectParts: Ids of other annotated image objects defined as parts of current image object
+
+        -->

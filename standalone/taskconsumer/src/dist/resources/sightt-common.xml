@@ -1,0 +1,73 @@
+<!-- Set up common values for the live and test -->
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context-3.0.xsd
+       http://camel.apache.org/schema/spring
+       http://camel.apache.org/schema/spring/camel-spring.xsd">
+    <context:annotation-config/>
+
+    <bean id="routeBuilder" class="com.ncc.sightt.MyRouteBuilder">
+        <property name="incomingQ" value="activemq:queue:sightt.task.runTask"/>
+        <property name="taskRenderMessageQ" value="activemq:queue:sightt.task.remoteTaskDone"/>
+        <property name="modelRenderMessageQ" value="activemq:queue:sightt.task.renderModelDone"/>
+        <property name="metadataMessageQ" value="activemq:queue:sightt.task.zipTask"/>
+        <property name="invalidQ" value="activemq:queue:invalidRequests"/>
+    </bean>
+
+    <bean id="mbc" class="com.ncc.sightt.s3.ModelBackgroundCache">
+        <property name="storageService" ref="storageService"/>
+    </bean>
+
+    <bean id="renderer" class="com.ncc.sightt.Renderer">
+        <property name="deleteDirOnCompletion" value="true" />
+    </bean>
+
+    <bean id="taskRenderMessageProcessor" class="com.ncc.sightt.processor.TaskRenderMessageProcessor">
+        <property name="fileStorageConfiguration" ref="fsc"/>
+        <property name="storageService" ref="storageService"/>
+        <property name="modelBackgroundCache" ref="mbc"/>
+        <property name="renderer" ref="renderer"/>
+    </bean>
+
+    <bean id="modelRenderMessageProcessor" class="com.ncc.sightt.processor.ModelRenderMessageProcessor">
+        <property name="fileStorageConfiguration" ref="fsc"/>
+        <property name="storageService" ref="storageService"/>
+        <property name="modelBackgroundCache" ref="mbc"/>
+        <property name="renderer" ref="renderer"/>
+    </bean>
+
+    <bean id="pooledConnectionFactory" class="org.apache.activemq.pool.PooledConnectionFactory"
+          init-method="start" destroy-method="stop">
+        <property name="maxConnections" value="8"/>
+        <property name="connectionFactory" ref="jmsConnectionFactory"/>
+    </bean>
+
+    <!-- setup spring jms TX manager -->
+    <bean id="jmsTransactionManager"
+          class="org.springframework.jms.connection.JmsTransactionManager">
+        <property name="connectionFactory" ref="pooledConnectionFactory"/>
+    </bean>
+
+    <bean id="jmsConfig" class="org.apache.camel.component.jms.JmsConfiguration">
+        <property name="connectionFactory" ref="pooledConnectionFactory"/>
+        <property name="concurrentConsumers" value="1"/>
+        <property name="transacted" value="true"/>
+        <property name="transactionManager" ref="jmsTransactionManager"/>
+    </bean>
+
+    <!-- define our activemq component -->
+    <bean id="activemq" class="org.apache.activemq.camel.component.ActiveMQComponent">
+        <property name="configuration" ref="jmsConfig"/>
+    </bean>
+
+    <bean id="xmlToObjectConverter" class="com.ncc.sightt.XmlToObjectConverter"/>
+
+    <camelContext xmlns="http://camel.apache.org/schema/spring">
+        <routeBuilder ref="routeBuilder"/>
+    </camelContext>
+</beans>
